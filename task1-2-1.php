@@ -6,6 +6,10 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <?php 
+  $pencil = "鉛筆";
+  $eracer = "消しゴム";
+  define("TAX","税込み")
+  ?>
 </body>
 </html>
