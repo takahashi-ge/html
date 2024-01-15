@@ -7,9 +7,12 @@
 </head>
 <body>
   <?php 
-  $pencil = "鉛筆";
+  $message = "現在、消費税は10％です。";
   $eracer = "消しゴム";
   define("TAX","税込み")
   ?>
+  <p>
+    <?= $message?>
+  </p>
 </body>
 </html>
