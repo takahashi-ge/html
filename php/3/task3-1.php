@@ -26,55 +26,40 @@
 </style>
 <body>
   <?php
-  $products = array('鉛筆','消しゴム');
-  $name = array('商品','価格','税込価格','1Dzの価格');
-  $price = array('100','200');
+  $pencil = array('鉛筆', '100');
+  $eracer = array('消しゴム', '200');
+  define('TAX','1.1');
+  define('DARZEN','12');
   ?>
 
   <table>
     <!-- 1列目 -->
     <tr>
-      <th>
-        <?php
-        echo $name[0];
-        ?>
-      </th>
-      <th>
-        <?php
-        echo $name[1];
-        ?>
-      </th>
-      <th>
-        <?php
-        echo $name[2];
-        ?>
-      </th>
-      <th>
-        <?php
-        echo $name[3];
-        ?>
-      </th>
+      <th>商品</th>
+      <th>価格</th>
+      <th>税込価格</th>
+      <th>1Dzの価格</th>
     </tr>
     <!-- 2列目 -->
     <tr>
       <td>
         <?php
-        echo $products[0];
+        echo $pencil[0];
         ?>
       </td>
       <td>
         <?php
-        echo $price[0];
+        echo $pencil[1];
         ?>
       </td>
       <td>
         <?php
-        echo $price[0] * 1.1;
+        echo $pencil[1] * TAX;
         ?>
       </td>
       <td>
         <?php
-        echo $price[0] * 1.1 * 12;
+        echo $pencil[1] * TAX * DARZEN;
         ?>
       </td>
     </tr>
@@ -82,22 +67,22 @@
     <tr>
       <td>
         <?php
-        echo $products[1];
+        echo $eracer[0];
         ?>
       </td>
       <td>
         <?php
-        echo $price[1];
+        echo $eracer[1];
         ?>
       </td>
       <td>
         <?php
-        echo $price[1] * 1.1;
+        echo $eracer[1] * 1.1;
         ?>
       </td>
       <td>
         <?php
-        echo $price[1] * 1.1 * 12;
+        echo $eracer[1] * 1.1 * 12;
         ?>
       </td>
     </tr>
