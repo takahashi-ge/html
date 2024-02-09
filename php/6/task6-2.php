@@ -9,7 +9,11 @@
   <?php
 
   function max_number($n1, $n2) {
-    return max($n1, $n2);
+    if ($n1 < $n2) {
+      return $n2;
+    } else {
+      return $n1;
+    }
   }
 
   $a = 9;
@@ -19,6 +23,23 @@
 
   echo "最大値は：$result";
 
+  // function max_number($n1, $n2) {
+  //   if ($n1 < $n2) {
+  //     echo "最大値は：$n2";
+  //   } else {
+  //     echo "最大値は：$n1";
+  //   }
+  // }
+
+  // $a = 9;
+  // $b = 21;
+
+  // max_number($a, $b);
+
+  
+
   ?>
+
+
 </body>
 </html>
