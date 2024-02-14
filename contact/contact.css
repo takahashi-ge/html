@@ -2,49 +2,46 @@
 
 /* header */
 .header-inner {
-    max-width: 1200px;
-    padding: 15px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1200px;
+  padding: 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header-title01 {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.header-title02 {
-    display: none;
+.header-title {
+  display: block;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .header-button-area {
-    display: flex;
+  display: flex;
 }
 
 .menu-button {
-    display: block;
-    text-align: center;
-    width: 160px;
-    padding: 16px;
-    color: #fff;
-    font-size: 12px;
-    opacity: 0.9;
-    cursor: pointer;
+  display: block;
+  text-align: center;
+  width: 160px;
+  padding: 16px;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 .menu-button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .button01 {
-    background-color: rgba(255, 102, 204, 1);
+  background-color: rgba(255, 102, 204, 1);
 }
 
 .button02 {
-    background-color: #009900;
-    margin-left: 15px;
+  background-color: #009900;
+  margin-left: 15px;
 }
 
 /* header end */
@@ -52,191 +49,192 @@
 /* main */
 /* site-menu */
 .menu-area {
-    padding: 20px 250px;
-    background-color: #eeeeee;
+  padding: 20px 250px;
+  background-color: #eeeeee;
 }
 
 .site-menu ul {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .site-menu ul li {
-    color: #777777;
-    font-weight: bold;
-    font-size: 14px;
+  color: #777777;
+  font-weight: bold;
+  font-size: 14px;
+	display: block;
 }
 
 .first-view img {
-    width: 100%;
+  width: 100%;
 }
 
 /* section */
 .title {
-    margin: 60px auto;
-    text-align: center;
+  margin: 60px auto;
+  text-align: center;
 }
 
 .title h1 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 /* form-area */
 .form-area {
-    border-top: 1px solid #EEEEEE;
-    border-bottom: 1px solid #EEEEEE;
-    padding: 20px 0;
-    margin: 0 10px;
+  border-top: 1px solid #EEEEEE;
+  border-bottom: 1px solid #EEEEEE;
+  padding: 20px 0;
+  margin: 0 10px;
 }
 
 .form-area {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .form-area dt {
-    width: 200px;
-    padding: 15px 0;
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 24px;
+  width: 200px;
+  padding: 15px 0;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 24px;
 }
 
 .form-area dt::after {
-    content: '必須';
-    font-size: 11px;
-    color: #EEEEEE;
-    background-color: #FF4F50;
-    margin-left: 10px;
-    padding: 4px 3px;
-    border-radius: 3px;
+  content: '必須';
+  font-size: 11px;
+  color: #EEEEEE;
+  background-color: #FF4F50;
+  margin-left: 10px;
+  padding: 4px 3px;
+  border-radius: 3px;
 }
 
 .form-area dd {
-    width: calc(100% - 200px);
-    padding: 15px 0;
+  width: calc(100% - 200px);
+  padding: 15px 0;
 }
 
 .input-box {
-    width: 100%;
-    max-width: 400px;
-    height: 40px;
-    margin: 0 40px;
-    padding: 5px;
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+  margin: 0 40px;
+  padding: 5px;
 }
 
 #select-box {
-    width: 100%;
-    max-width: 400px;
-    height: 40px;
-    margin: 0 40px;
-    padding: 5px;
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+  margin: 0 40px;
+  padding: 5px;
 }
 
 #message {
-    width: 80%;
-    height: 150px;
-    padding: 10px;
-    line-height: 1.5;
-    margin: 0 40px;
+  width: 80%;
+  height: 150px;
+  padding: 10px;
+  line-height: 1.5;
+  margin: 0 40px;
 }
 
 .identity {
-    margin-left: 5px;
-    color: #009900;
+  margin-left: 5px;
+  color: #009900;
 
 }
 
 .identity:hover {
-    text-decoration: underline;
-    text-decoration-color: #009900;
+  text-decoration: underline;
+  text-decoration-color: #009900;
 }
 
 /* 入力フォーム枠線 */
 input,
 select,
 textarea {
-    outline: 1px solid #000;
+  outline: 1px solid #000;
 }
 
 /* form-area end */
 
 /* submit-button */
 .submit-button {
-    display: block;
-    margin: 60px auto;
-    text-align: center;
-    padding: 15px 0;
-    width: 250px;
-    background-color: #009900;
-    color: #EEEEEE;
-    box-shadow: 0 3px #007700;
-    opacity: 0.7;
-    cursor: pointer;
-    border: none;
+  display: block;
+  margin: 60px auto;
+  text-align: center;
+  padding: 15px 0;
+  width: 250px;
+  background-color: #009900;
+  color: #EEEEEE;
+  box-shadow: 0 3px #007700;
+  opacity: 0.7;
+  cursor: pointer;
+  border: none;
 }
 
 .submit-button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .submit-button:active {
-    box-shadow: none;
-    position: relative;
-    top: 3px;
+  box-shadow: none;
+  position: relative;
+  top: 3px;
 }
 
 /* submit-button end */
 
 /* btn-area */
 .btn-area {
-    padding: 40px 20px;
-    background-color: #C0C0C0;
-    display: flex;
-    justify-content: space-between;
+  padding: 40px 20px;
+  background-color: #C0C0C0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn-left {
-    background-color: #EEEEEE;
-    width: 49%;
-    text-align: center;
-    padding: 40px 0;
+  background-color: #EEEEEE;
+  width: 49%;
+  text-align: center;
+  padding: 40px 0;
 }
 
 .btn-right {
-    background-color: #EEEEEE;
-    width: 49%;
-    text-align: center;
-    padding: 40px 0;
+  background-color: #EEEEEE;
+  width: 49%;
+  text-align: center;
+  padding: 40px 0;
 }
 
 .btn-area h3 {
-    font-size: 15px;
-    margin-bottom: 10px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .btn {
-    display: block;
-    width: 300px;
-    margin: 0 auto;
-    padding: 10px;
-    color: #fff;
-    font-size: 18px;
-    line-height: 3;
-    opacity: 0.9;
-    cursor: pointer;
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 3;
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 .btn:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .shopping {
-    background-color: #FF4F50;
+  background-color: #FF4F50;
 }
 
 .inquary-button {
-    background-color: #006600;
+  background-color: #006600;
 }
 
 /* btn-area end */
@@ -245,45 +243,45 @@ textarea {
 
 /* footer */
 .footer {
-    margin-top: 300px;
+  margin-top: 300px;
 }
 
 
 .detaile {
-    text-align: center;
+  text-align: center;
 }
 
 .company {
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .adress {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .tel {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .time {
-    margin-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 .footer-menu {
-    padding: 40px 0 80px 0;
-    border: 1px solid #EEEEEE;
+  padding: 40px 0 80px 0;
+  border: 1px solid #EEEEEE;
 }
 
 .footer-menu ul {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .copyright {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 12px;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 12px;
 }
 
 /* footer end */
@@ -291,111 +289,103 @@ textarea {
 /* ここからレスポンシブ */
 /*521px〜960pxの記述。（タブレット）*/
 @media (max-width:961px) {
-    /* header */
-    .header-title01 {
-        display: none;
-    }
 
-    .header-title02 {
-        display: block;
-    }
+  .menu-button {
+    width: 120px;
+    padding: 12px;
+    opacity: 1;
+  }
 
-    .menu-button {
-        width: 120px;
-        padding: 12px;
-        opacity: 1;
-    }
-
-    .button02 {
-        margin-left: 10px;
-    }
+  .button02 {
+    margin-left: 10px;
+  }
 
     /* header end */
 
     /* site-menu */
-    .menu-area {
-        padding: 20px 60px;
-    }
+  .menu-area {
+    padding: 20px 60px;
+  }
 
     /* main */
     /* section */
-    .title {
-        margin: 40px 20px;
-    }
+  .title {
+    margin: 40px 20px;
+  }
 
-    .title h1 {
-        margin-bottom: 20px;
-    }
+  .title h1 {
+    margin-bottom: 20px;
+  }
 
     /* form-area */
-    .form-area {
-        flex-direction: column;
-        padding: 20px;
-    }
+  .form-area {
+    flex-direction: column;
+    padding: 20px;
+  }
 
-    .form-area dt {
-        padding: 10px 0;
-    }
+  .form-area dt {
+    padding: 10px 0;
+  }
 
-    .form-area dd {
-        padding: 10px 0;
-        width: 100%;
-    }
+  .form-area dd {
+    padding: 10px 0;
+    width: 100%;
+  }
 
-    .input-box {
-        margin: 0;
-    }
+  .input-box {
+    margin: 0;
+  }
 
-    #select-box {
-        margin: 0;
-    }
+  #select-box {
+    margin: 0;
+  }
 
-    #message {
-        margin: 0;
-        width: 100%;
-    }
+  #message {
+    margin: 0;
+    width: 100%;
+  }
 
-    :hover {
-        pointer-events: none;
-    }
+  :hover {
+    pointer-events: none;
+  }
 
     /* form-area end */
 
     /* submit-button */
-    .submit-button {
-        box-shadow: none;
-        opacity: 1;
-    }
+  .submit-button {
+    box-shadow: none;
+    opacity: 1;
+  }
 
     /* submit-button end */
 
     /* btn-area */
-    .btn-area {
-        padding: 20px;
-    }
+  .btn-area {
+    padding: 20px;
+  }
 
 
-    .btn-left {
-        padding: 20px 0;
-    }
+  .btn-left {
+    padding: 20px 0;
+  }
 
-    .btn-right {
-        padding: 20px 0;
-    }
+  .btn-right {
+    padding: 20px 0;
+  }
 
-    .btn {
-        width: 180px;
-        line-height: 1.5;
-        opacity: 1;
-        font-size: 14px;
-    }
+  .btn {
+    width: 180px;
+    line-height: 1.5;
+    opacity: 1;
+    font-size: 14px;
+  }
 
     /* btn-area end */
 
     /* footer */
-    .footer {
-        margin-top: 150px;
-    }
+  .footer {
+    margin-top: 150px;
+  }
 
     /* footer end */
 }
@@ -403,78 +393,74 @@ textarea {
 /*520px以下の記述。（モバイル） */
 @media (max-width: 521px) {
 
-    /* header */
-    .header-inner {
-        padding: 10px;
-    }
+  /* header */
+  .header-inner {
+    padding: 10px;
+  }
 
-    .header-title02 {
-        font-size: 22px;
-    }
+  .menu-button {
+    width: 80px;
+    padding: 10px;
+  }
 
-    .menu-button {
-        width: 80px;
-        padding: 10px;
-    }
-
-    .button02 {
-        margin-left: 5px;
-    }
+  .button02 {
+    margin-left: 5px;
+  }
 
     /* header end */
 
     /* main */
     /* site-menu */
-    .menu-area {
-        padding: 10px 20px;
-    }
+  .menu-area {
+    padding: 10px 20px;
+  }
 
-    .first-view img {
-        width: 100%;
-    }
+  .first-view img {
+    width: 100%;
+  }
 
     /* section */
     /* section end */
 
     /* btn-area */
-    .btn-area {
-        flex-direction: column;
-        padding: 20px;
-    }
+  .btn-area {
+    flex-direction: column;
+    padding: 20px;
+  }
 
-    .btn-left {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+  .btn-left {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-    .btn-right {
-        width: 100%;
-    }
+  .btn-right {
+    width: 100%;
+  }
 
-    .btn {
-        width: 300px;
-    }
+  .btn {
+    width: 300px;
+  }
 
     /* btn-area end */
     /* main end */
 
     /* footer */
-    .footer {
-        margin-top: 100px;
-    }
+  .footer {
+    margin-top: 100px;
+  }
 
-    .footer-menu {
-        padding: 40px 0;
-    }
+  .footer-menu {
+    padding: 40px 0;
+  }
 
-    .footer-menu ul {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-content: flex-start;
-        text-align: center;
-    }
+  .footer-menu ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: flex-start;
+    text-align: center;
+  }
 
-    .footer-menu ul li {
-        margin: 5px;
-    }
+  .footer-menu ul li {
+    margin: 5px;
+  }
 }

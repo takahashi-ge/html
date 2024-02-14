@@ -13,6 +13,7 @@
 .header-title01 {
   font-size: 22px;
   font-weight: bold;
+  display: block;
 }
 
 .header-title02 {
@@ -271,6 +272,8 @@
 
   .header-title02 {
     display: block;
+    font-weight: bold;
+    font-size: 30px;
   }
 
   .menu-button {
@@ -378,7 +381,6 @@
 
   .header-title02 {
     display: block;
-    font-size: 22px;
   }
 
   .menu-button {

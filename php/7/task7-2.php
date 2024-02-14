@@ -14,6 +14,7 @@
     private $age;
     private $sex;
     private $id;
+    private static $i = 1;
 
     //メソッド
     public function __construct($name, $age, $sex) {
@@ -22,12 +23,9 @@
       $this -> sex = $sex;
     }
 
-    public function number {
-      $this -> id = 'S000' . range(1, 3);
-    }
-
-    public function show {
-      printf("%s %s %d歳 %s", $this->name, $this->age, $this->sex);
+    public function show() {
+      // echo $this -> id;
+      printf("(S%04d) %s %d歳 %s <br>", self::$i++, $this->name, $this->age, $this->sex);
     }
   }
 
@@ -43,21 +41,18 @@
       $this -> jikyu = $jikyu;
     }
 
-    public function number() {
-      $this -> id = 'S000' . range(1, 3);
-    }
-
     public function show() {
-      printf("%n %n %a歳 %s %j", $this->name, $this->age, $this->sex, $this->jikyu);
+      // echo $this -> id;
+      printf("(S%04d) %s %d歳 %s (時給：%s円) <br>", self::$i++, $this->name, $this->age, $this->sex, $this->jikyu);
     }
   }
 
-  //オブジェクト（インスタンス）の生成
+  //オブジェクト
   $staff1 = new Staff("佐藤 一郎", 31, "男性");
   $staff2 = new Staff("山田 花子", 25, "女性");
   $staff3 = new Staff("鈴木 次郎", 27, "男性");
-  $staff4 = new Staff("田中 友子", 24, "女性", "時給：900円");
-  $staff5 = new Staff("中村 三郎", 27, "男性");
+  $staff4 = new Staff("田中 友子", 24, "女性", 900);
+  $staff5 = new Staff("中村 三郎", 26, "男性");
 
   //メソッドの呼び出し
   $staff1 -> show();
@@ -65,6 +60,11 @@
   $staff3 -> show();
   $staff4 -> show();
   $staff5 -> show();
+
+//   $name = "Alice";
+// $age = 30;
+// printf("Hello, my name is %s and I am %d years old.", $name, $age);
+// echo 'Hello, my name is' . $name . 'and I am' . $age . 'years old';
   ?>
 </body>
 </html>
