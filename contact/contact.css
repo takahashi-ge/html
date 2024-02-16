@@ -80,14 +80,11 @@
 }
 
 /* form-area */
-.form-area {
+/* .form-area {
   border-top: 1px solid #EEEEEE;
   border-bottom: 1px solid #EEEEEE;
   padding: 20px 0;
   margin: 0 10px;
-}
-
-.form-area {
   display: flex;
   flex-wrap: wrap;
 }
@@ -148,9 +145,11 @@
 .identity:hover {
   text-decoration: underline;
   text-decoration-color: #009900;
-}
+} */
+/* form-area end */
 
 /* 入力フォーム枠線 */
+.form-area 
 input,
 select,
 textarea {
