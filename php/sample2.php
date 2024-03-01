@@ -27,3 +27,72 @@
     </form>
   </body>
 </html>
+
+<!-- <form action="#">
+          <dl class="form-area">
+            <dt>
+              <span class="required">お名前</span>
+            </dt>
+            <dd>
+              <?php
+                echo $_POST['name1'];
+              ?>
+            </dd>
+            <dt>
+              <span class="required">フリガナ</span>
+            </dt>
+            <dd>
+              <?php
+                echo $_POST['name2'];
+              ?>
+            </dd>
+            <dt>
+              <span class="required">メールアドレス</span>
+            </dt>
+            <dd>
+              <?php
+                echo $_POST['email'];
+              ?>
+            </dd>
+            <dt>
+              <span class="required">電話番号</span>
+            </dt>
+            <dd>
+              <?php
+                // 入力された電話番号を取得
+                $phoneNumber = $_POST['tel']; // ここで適切なフォームフィールドの名前を指定してください
+
+                // 電話番号の桁数をカウント
+                $phoneNumberLength = strlen($phoneNumber);
+
+                // 電話番号が10桁または11桁でない場合、注意文を出力
+                if ($phoneNumberLength != 10 && $phoneNumberLength != 11) {
+                    echo '<p style = "color: red;">電話番号は10桁または11桁で入力してください。</p>';
+                }
+              ?>
+            </dd>
+            <dt>
+              <span class="required">お問い合わせ項目</span>
+            </dt>
+            <dd>
+              <?php
+                echo $_POST['genre'];
+                ?>
+            </dd>
+            <dt>
+              <span class="required">お問い合わせ内容</span>
+            </dt>
+            <dd>
+              <?php
+                echo $_POST['message'];
+              ?>
+            </dd>
+            <dt>
+              <span class="required">個人情報保護方針</span>
+            </dt>
+            <dd>
+              <input class="consent-chk" type="checkbox" name="consent-chk" required><label for="consent-chk"><a class="identity" href="#">個人情報保護方針<i class="fa-solid fa-arrow-up-right-from-square"></i></a></label>に同意します。
+            </dd>
+          </dl>
+          <input class="submit-button" type="confirm" value = "確認">
+        </form> -->

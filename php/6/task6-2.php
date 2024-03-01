@@ -21,6 +21,8 @@
 
   $result = max_number($a, $b);
 
+  echo '$a = ' . $a .'<br>';
+  echo '$b = ' . $b .'<br>';
   echo "最大値は：$result";
 
   // function max_number($n1, $n2) {

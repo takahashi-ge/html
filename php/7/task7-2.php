@@ -14,7 +14,7 @@
     private $age;
     private $sex;
     private $id;
-    private static $i = 1;
+    protected static $i = 1;
 
     //メソッド
     public function __construct($name, $age, $sex) {
@@ -43,7 +43,7 @@
 
     public function show() {
       // echo $this -> id;
-      printf("(S%04d) %s %d歳 %s (時給：%s円) <br>", self::$i++, $this->name, $this->age, $this->sex, $this->jikyu);
+      printf("(P%04d) %s %d歳 %s (時給：%s円) <br>", self::$i++, $this->name, $this->age, $this->sex, $this->jikyu);
     }
   }
 
@@ -51,7 +51,7 @@
   $staff1 = new Staff("佐藤 一郎", 31, "男性");
   $staff2 = new Staff("山田 花子", 25, "女性");
   $staff3 = new Staff("鈴木 次郎", 27, "男性");
-  $staff4 = new Staff("田中 友子", 24, "女性", 900);
+  $staff4 = new PartStaff("田中 友子", 24, "女性", 900);
   $staff5 = new Staff("中村 三郎", 26, "男性");
 
   //メソッドの呼び出し
