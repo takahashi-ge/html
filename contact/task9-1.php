@@ -5,8 +5,41 @@
   $tel = $_POST['tel'];
   $options = $_POST['options'];
   $message = $_POST['message'];
-  $checkbox = $_POST['checkbox'];
-?>
+  $checkbox = $_POST['checkbox'];  
+
+  // 接続
+  try {
+  $db = new PDO('mysql:host=localhost;dbname=consumer;charset=utf8', 'root', 'root');
+
+  // $db->query("DROP TABLE IF EXISTS consumer");
+  // $db->query(
+  //   "CREATE TABLE consumer(
+  //     name VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  //     kana VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  //     email VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  //     tel VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  //     options TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  //     message TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci)"
+  // );
+
+  // SQL文を入れる
+  $stmt = $db->prepare("INSERT INTO consumer (name, kana, email, tel, options, message) VALUES (?, ?, ?, ?, ?, ?);");
+
+    $stmt -> bindParam(1, $name, PDO::PARAM_STR);
+    $stmt -> bindParam(2, $kana, PDO::PARAM_STR);
+    $stmt -> bindParam(3, $email, PDO::PARAM_STR);
+    $stmt -> bindParam(4, $tel, PDO::PARAM_STR);
+    $stmt -> bindParam(5, $options, PDO::PARAM_STR);
+    $stmt -> bindParam(6, $message, PDO::PARAM_STR);
+
+  // SQL文を実行
+  $stmt->execute();
+    
+  } catch (PDOException $e) {
+    echo $e->getMessage() . '<br>';
+}
+
+  ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -109,7 +142,7 @@
         </div>
         <div class="btn-right">
           <h3>お気軽にお問い合わせください</h3>
-          <a class="btn inquary-button" href="contact.html">お問い合わせ</a>
+          <a class="btn inquary-button" href="../contact/">お問い合わせ</a>
         </div>
       </div>
       <!-- btn-area end -->

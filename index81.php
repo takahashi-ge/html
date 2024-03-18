@@ -1,11 +1,128 @@
+<!-- <?php
+
+	try {
+		// データベース接続
+		$pdo = new PDO(
+			'mysql:host=localhost;dbname=consumer;charset=utf8mb4',
+			'root',
+			'root',
+			[
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false
+      ]
+		);
+
+		// $pdo->query("DROP TABLE IF EXISTS task9");
+		// $pdo->query(
+		// 	"CREATE TABLE task9 (
+		// 		id INT PRIMARY KEY,
+		// 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+		// 		name VARCHAR(64),
+		// 		kana VARCHAR(64),
+		// 		email VARCHAR(128),
+		// 		tel VARCHAR(13),
+		// 		options TEXT,
+		// 		message TEXT
+    //   )"
+		// );
+
+    
+    // フォームからのデータ取得
+    $name = $_POST['name'];
+    $kana = $_POST['kana'];
+    $email = $_POST['email'];
+    $tel = $_POST['tel'];
+    $options = $_POST['options'];
+    $message = $_POST['message'];
+    
+    // データベースに挿入
+      $stmt = $pdo->prepare("INSERT INTO consumer (created_at, name, kana, email, tel, options, message) VALUES (NOW(), ?, ?, ?, ?, ?, ?);");
+      $stmt->execute([$name, $kana, $email, $tel, $options, $message]);
+      $id = $pdo->lastInsertId(); // 挿入された行のIDを取得
+    } catch (PDOException $e) {
+      echo $e->getMessage() . '<br>';
+      exit;
+    }
+// 完了ページ表示
+?>
+
 <?php
-  $name = $_POST['name'];
-  $kana = $_POST['kana'];
-  $email = $_POST['email'];
-  $tel = $_POST['tel'];
-  $options = $_POST['options'];
-  $message = $_POST['message'];
-  $checkbox = $_POST['checkbox'];
+try {
+    // データベース接続
+    $pdo = new PDO(
+        'mysql:host=localhost;dbname=consumer;charset=utf8mb4',
+        'root',
+        'root',
+        [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false
+        ]
+    );
+
+        // フォームからのデータ取得
+        $name = $_POST['name'];
+        $kana = $_POST['kana'];
+        $email = $_POST['email'];
+        $tel = $_POST['tel'];
+        $options = $_POST['options'];
+        $message = $_POST['message'];
+
+        // データベースに挿入
+        $stmt = $pdo->prepare("INSERT INTO consumer (created_at, name, kana, email, tel, options, message) VALUES (NOW(), ?, ?, ?, ?, ?, ?);");
+        $stmt->execute([$name, $kana, $email, $tel, $options, $message]);
+        $inquiry_id = $pdo->lastInsertId(); // 最後に挿入された行のIDを取得
+        
+        // 完了ページ表示
+        echo "データが正常に挿入されました。";
+
+} catch (PDOException $e) {
+    echo $e->getMessage() . '<br>';
+    exit;
+}
+
+// 完了ページにリダイレクト
+header("Location: task8-2.php?id=$inquiry_id");
+exit();
+
+?> -->
+
+<?php
+session_start();
+
+    $_SESSION["name"] = $_POST["name"];
+    $_SESSION["kana"] = $_POST["kana"];
+    $_SESSION["email"] = $_POST["email"];
+    $_SESSION["tel"] = $_POST["tel"];
+    $_SESSION["options"] = $_POST["options"];
+    $_SESSION["message"] = $_POST["message"];
+
+if (isset($_POST["submit"])) {
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=consumer;charset=utf8', 'root', 'root');
+
+    // $pdo->query("DROP TABLE IF EXISTS task9");
+		// $pdo->query(
+		// 	"CREATE TABLE task9 (
+		// 		id INT PRIMARY KEY,
+		// 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+		// 		name VARCHAR(64),
+		// 		kana VARCHAR(64),
+		// 		email VARCHAR(128),
+		// 		tel VARCHAR(13),
+		// 		options TEXT,
+		// 		message TEXT
+    //   )"
+		// );
+
+        $stmt = $db->prepare("INSERT INTO task9 (name, kana, email, tel, options, message, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())");
+        $stmt->execute([$_SESSION["name"], $_SESSION["kana"], $_SESSION["email"], $_SESSION["tel"], $_SESSION["options"], $_SESSION["message"]]);
+
+        header("Location: complete.php");
+        exit();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +133,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="21_HP（お問い合わせ）">
     <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="contact.css">
+    <link rel="stylesheet" type="text/css" href="contact/contact.css">
     <script src="https://kit.fontawesome.com/b91730e163.js" crossorigin="anonymous"></script>
   </head>
   <body>

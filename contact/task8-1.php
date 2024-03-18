@@ -6,8 +6,13 @@
   $options = $_POST['options'];
   $message = $_POST['message'];
   $checkbox = $_POST['checkbox'];
-?>
 
+  // 入力された電話番号を取得
+  $phoneNumber = $tel;
+                  
+  // 電話番号の桁数をカウント
+  $phoneNumberLength = strlen($phoneNumber);
+?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -59,11 +64,18 @@
           <p>お問い合わせや業務内容に関するご質問は、電話またはこちらのお問い合わせフォームより承っております。<br>後ほど担当者よりご連絡させていただきます。</p>
         </div>
         <div class="form-wrap">
-          <form method="post" action="task8-2.php">
+          <form method="post" action="<?php
+              if(!empty($name) && !empty($kana) && !empty($email) && !empty(strpos($email, '@')) && (!empty($tel) && ($phoneNumberLength == 12 || $phoneNumberLength == 13)) && !empty($options) && !empty($message) && !empty($checkbox)) {
+                echo 'task9-1.php';
+              } else {
+                echo 'task8-1.php';
+              }
+            ?>">
             <table cellpadding="3">
               <tr>
                 <th class="item-name"><label for="name">お名前</label></th>
-                <td class="item"><input class="input-box" type="text" id="name" name="name" placeholder="山田太郎" value="<?=$name?>" required></td>
+                <td class="item"><input class="input-box" type="text" id="name" name="name" placeholder="山田太郎" value="<?=$name?>" ></td>
+                
               </tr>
               <tr>
                 <th></th>
@@ -75,7 +87,7 @@
               </tr>
               <tr>
                 <th class="item-name"><label for="kana">フリガナ</label></th>
-                <td class="item"><input class="input-box" type="text" id="kana" name="kana" placeholder="ヤマダタロウ" value="<?=$kana?>" required></td>
+                <td class="item"><input class="input-box" type="text" id="kana" name="kana" placeholder="ヤマダタロウ" value="<?=$kana?>" ></td>
               </tr>
               <tr>
                 <th></th>
@@ -87,31 +99,25 @@
               </tr>
               <tr>
                 <th class="item-name"><label for="email">メールアドレス</label></th>
-                <td class="item"><input class="input-box" id="email" name="email" placeholder="info@fact-creademy.jp" value="<?=$email?>" required></td>
+                <td class="item"><input class="input-box" id="email" name="email" placeholder="info@fact-creademy.jp" value="<?= $email?>"></td>
               </tr>
               <tr>
                 <th></th>
                 <?php
-                  if (empty($email)) {
+                  if (empty( $email)) {
                     echo '<td style = "color: red; padding-left: 40px;">メールアドレスを入力してください。</td>';
-                  } elseif (strpos($email, '@') == false) {
-                    echo '<td>@がふくまれていません</td>';
+                  } elseif (strpos( $email, '@') == false) {
+                    echo '<td style = "color: red; padding-left: 40px;">@がふくまれていません</td>';
                   }
                 ?>
               </tr>
               <tr>
                 <th class="item-name"><label for="tel">電話番号</label></th>
-                <td class="item"><input class="input-box" type="tel" id="tel" name="tel" placeholder="090-1234-5678" value="<?=$tel?>" required></td>
+                <td class="item"><input class="input-box" type="tel" id="tel" name="tel" placeholder="090-1234-5678" value="<?=$tel?>" ></td>
               </tr>
               <tr>
                 <th></th>
                 <?php
-                  // 入力された電話番号を取得
-                  $phoneNumber = $tel;
-                  
-                  // 電話番号の桁数をカウント
-                  $phoneNumberLength = strlen($phoneNumber);
-                  
                   // 電話番号が10桁または11桁でない場合、注意文を出力
                   if (empty($tel)) {
                     echo '<td style = "color: red; padding-left: 40px;">電話番号を入力してください。</td>';
@@ -123,7 +129,7 @@
               </tr>
               <tr>
                 <th class="item-name"><label for="options">お問い合わせ項目</label></th>
-                <td class="item"><select id="select-box" name="options" required>
+                <td class="item"><select id="select-box" name="options" >
                   <option value="" <?php if ($options !== "製品に関して" && $options !== "サービスに関して" && $options !== "採用情報") {echo 'selected';}?>>選択してください</option>
                   <option value="製品に関して" <?php if ($options == "製品に関して") {echo 'selected';}?>>製品に関して</option>
                   <option value="サービスに関して" <?= ($options == "サービスに関して") ?'selected':'';?>>サービスに関して</option>
@@ -140,7 +146,7 @@
               </tr>
               <tr>
                 <th class="item-name"><label for="message">お問い合わせ内容</label></th>
-                <td class="item"><textarea id="message" name="message" placeholder="こちらにお問い合わせ内容をご記入ください" required><?=$message?></textarea></td>
+                <td class="item"><textarea id="message" name="message" placeholder="こちらにお問い合わせ内容をご記入ください" ><?=$message?></textarea></td>
               </tr>
               <tr>
                 <th></th>
@@ -152,12 +158,11 @@
               </tr>
               <tr>
                 <th class="item-name"><label for="privacy">個人情報保護方針</label></th>
-                <td class="item"><input class="consent-chk" type="checkbox" name="checkbox" value="1" <?= ($checkbox == 1) ?'checked':'';?> required><label for="checkbox"><a class="identity" href="#">個人情報保護方針<i class="fa-solid fa-arrow-up-right-from-square"></i></a>に同意します。</label></td>
+                <td class="item"><input class="consent-chk" type="checkbox" name="checkbox" value="1" <?= ($checkbox == 1) ?'checked':'';?> ><label for="checkbox"><a class="identity" href="#">個人情報保護方針<i class="fa-solid fa-arrow-up-right-from-square"></i></a>に同意します。</label></td>
               </tr>
               <tr>
                 <th></th>
                 <?php
-                echo $checkbox;
                   if (empty($checkbox)) {
                     echo '<td style = "color: red; padding-left: 40px;">チェックをしてください。</td>';
                   }
@@ -192,7 +197,7 @@
         </div>
         <div class="btn-right">
           <h3>お気軽にお問い合わせください</h3>
-          <a class="btn inquary-button" href="#">お問い合わせ</a>
+          <a class="btn inquary-button" href="../contact/">お問い合わせ</a>
         </div>
       </div>
       <!-- btn-area end -->

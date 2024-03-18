@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>確認画面</title>
-</head>
-<body>
-    <h1>入力内容を確認してください</h1>
-    <p>名前：<?php echo $_POST['name']; ?></p>
-    <p>メールアドレス：<?php echo $_POST['email']; ?></p>
-    <p>メッセージ：<?php echo $_POST['message']; ?></p>
-    <form action="submit.php" method="post">
-        <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>">
-        <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
-        <input type="hidden" name="message" value="<?php echo $_POST['message']; ?>">
-        <input type="submit" value="送信">
-    </form>
-</body>
-</html>
+<!-- confirm.php -->
+<?php
+session_start();
+
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['kana'] = $_POST['kana'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['tel'] = $_POST['tel'];
+    echo "入力内容を確認してください。<br>";
+    echo "名前: " . $_POST['name'] . "<br>";
+    echo "カナ: " . $_POST['kana'] . "<br>";
+    echo "メール: " . $_POST['email'] . "<br>";
+    echo "電話番号: " . $_POST['tel'] . "<br>";
+
+?>
+<form method="POST" action="submit.php">
+    <input type="submit" value="送信">
+</form>
