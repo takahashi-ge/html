@@ -7,6 +7,7 @@ define('PASS', 'root');
 class Database {
   private $pdo;
 
+  // connect
   private function connect() {
     if (!isset($this->pdo)) {
       $this->pdo = new PDO(
@@ -21,14 +22,75 @@ class Database {
     }
   }
 
+  // getAllsyain
   function getAllsyain() {
     try {
       $this->connect();
       $stmt = $this->pdo->query("SELECT id, name FROM syain ORDER BY id;");
-      $results = $stmt->fetchAll();
+      $members = $stmt->fetchAll();
+      return $members;
     } catch (PDOException $e) {
       echo $e->getMessage() . '<br>';
       exit;
     }
   }
+
+  // getsyain
+  function getsyain($id) {
+    try {
+      $this->connect();
+      $stmt = $this->pdo->prepare("SELECT * FROM syain WHERE id = ? ;");
+      $stmt->bindParam(1, $id, PDO::PARAM_INT);
+      $member = $stmt->execute();
+      if ($member) {
+        $member = $stmt->fetchAll();
+        if (count($member) == 0) {
+          return null;
+        }
+        return $member[0]; 
+      }
+      return null;
+    } catch (PDOException $e) {
+      echo $e->getMessage() . '<br>';
+      exit;
+    }
+  }
+
+  function idexist($id) {
+    if ($this->getsyain($id) != null) {
+      return true;
+    }
+    return false;
+  }
+
+  // createsyain
+  function createsyain($id, $name, $age, $work) {
+    try {
+      $stmt = $this->pdo->prepare("INSERT INTO syain VALUES(?,?,?,?);");
+      $stmt->bindParam(1, $id, PDO::PARAM_INT);
+      $stmt->bindParam(2, $name, PDO::PARAM_STR);
+      $stmt->bindParam(3, $age, PDO::PARAM_INT);
+      $stmt->bindParam(4, $work, PDO::PARAM_STR);
+      $result = $stmt->execute();
+      return true;
+    } catch (PDOException $e) {
+      echo $e->getMessage() . '<br>';
+      exit;
+    }
+    return false;
+  }
+
+  // deletesyain
+  // function deletesyain($id) {
+  //   try {
+  //     $stmt = $this->pdo->prepare("DELETE FROM syain WHERE iid = ? ;");
+  //     $result = $stmt->execute();
+  //     return true;
+  //   } catch (PDOException $e) {
+  //     cho $e->getMessage() . '<br>';
+  //     exit;
+  //   }
+  //   return false;
+  // }
+
 }

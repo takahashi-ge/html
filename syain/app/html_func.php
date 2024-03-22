@@ -1,5 +1,6 @@
 <?php
-exit;
+
+// show_top
 function show_top($heading = "社員一覧") {
   echo <<<TOP
   <!DOCTYPE html>
@@ -12,12 +13,13 @@ function show_top($heading = "社員一覧") {
 </head>
 <body>
   <h1>{$heading}</h1>
-  TOP;
+TOP;
 }
 
+// show_down
 function show_down($return = false) {
   if ($return == true) {
-    echo '<button><a href="../index.php">社員一覧</a></button>';
+    echo '<button><a href="index.php">社員一覧に戻る</a></button>';
   }
   echo <<<BOTTOM
   </body>
@@ -25,6 +27,7 @@ function show_down($return = false) {
 BOTTOM;
 }
 
+// show_syainlist
 function show_syainlist($members) {
   echo <<<TABLE1
     <table>
@@ -47,6 +50,7 @@ TABLE2;
 TABLE3;
 }
 
+// show_form
 function show_form($id, $name, $age, $work, $old_id, $status, $button) {
   $error = "";
   $error = get_error();
@@ -60,16 +64,23 @@ function show_form($id, $name, $age, $work, $old_id, $status, $button) {
     <input type="text" name="age" placeholder="例）35" value="{$age}">
     <p>勤務形態</p>
     <input type="text" name="work" placeholder="例）社員" value="{$work}">
-    <p>{$error}</p>
+    <p class="red">{$error}</p>
     <input type="hidden" name="old_id" value="{$old_id}">
     <input type="hidden" name="status" value="{$status}">
-    <input type="hidden" name="button" value="{$old_id}">
+    <input type="submit" name="button" value="{$button}">
   </form>
-  FORM;
+FORM;
 }
 
+// show_create
 function show_create() {
   $error = get_error();
   show_form("","","","","","create","登録");
 }
+
+// show_syain
+function show_syain() {
+  
+}
+
 ?>
